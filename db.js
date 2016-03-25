@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var Movie = new Schema ({
+var Note = new Schema ({
 	title : {type: String, required: true},
 	description : {type: String, required: true},
 	updated_at : Date
@@ -21,5 +21,5 @@ var Movie = new Schema ({
 // 		}
 // );
 
-mongoose.model('Movie', Movie);
-mongoose.connect('mongodb://localhost/express_movies');
+mongoose.model('Note', Note);
+mongoose.connect('mongodb://localhost/post_it_app');
