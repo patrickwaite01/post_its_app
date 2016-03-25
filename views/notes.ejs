@@ -12,7 +12,7 @@
    <div class='row'>
      <div class='col s12 m4 offset-m4'>
        <h3>Add Post It Note</h3>
-       <form action='/movies' method='post'>
+       <form action='/notes' method='post'>
          <input type='text' name='title' placeholder='title' required />
          <input type='text' name="description" placeholder="reminder" required />
          <button class='btn btn-waves yellow black-text' type='submit'>Post It!</button>
@@ -28,7 +28,7 @@
        </thead>
        <tbody>
          <% movies.forEach( function(movie) { %>
-           <% action = '/movies/' + movie.id %>
+           <% action = '/notes/' + movie.id %>
            <tr>
              <td> <a href =<%= action %>><%= movie.title %></a> </td>
              <td><%= movie.description %></td>

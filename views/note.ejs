@@ -8,13 +8,13 @@
 		<head>	
 			<% include ./partials/header %>
 		</head>
-		<a href="/movies">Back to Movies</a>
-		<h1 class="center"><%= movie.title %></h1>
+		<a href="/movies">Back to Notes</a>
+		<h1 class="center"><%= note.title %></h1>
 		<hr />
-		<% var action = '/movies/edit/' + movie.id %>
+		<% var action = '/notes/edit/' + note.id %>
 		<form class="center-align" action=<%= action %> method='POST'>
-			<input type='text' name='title' value='<%= movie.title %>' />
-			<input type='text' name='description' value='<%= movie.description %>' />			
+			<input type='text' name='title' value='<%= note.title %>' />
+			<input type='text' name='description' value='<%= note.description %>' />			
 			<button class="btn btn-waves">Update</button>
 		</form>	
 	</body>
