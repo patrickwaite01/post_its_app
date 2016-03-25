@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var express = require('express');
-var Movie = mongoose.model('Movie');
+var Note = mongoose.model('Note');
 var router = express.Router();
 
 /* GET movie listings. */
@@ -13,26 +13,26 @@ var router = express.Router();
 
 /* Mongoose GET functin */
 router.get('/', function(req, res){
-	Movie.find( function (error, movies, count) {
-		res.render('movies', {movies: movies });
+	Note.find( function (error, notes, count) {
+		res.render('notes', {notes: notes });
 	});
 });
 
 /* GET a specific Movie */
 router.get('/:id', function (req, res) {
-	Movie.findById(req.params.id, function(err, movie){
-		res.render('movie', { movie: movie});
+	Note.findById(req.params.id, function(err, note){
+		res.render('note', { note: note});
 	});
 });
 
 /* Edit a movie in mongoose */
 router.post('/edit/:id', function(req, res){
-	Movie.findById( req.params.id, function(err, movie){
-		movie.title = req.body.title; 
-		movie.description = req.body.description;
-		movie.upated_at = Date.now();
-		movie.save(function(error, movie){
-			res.redirect('/movies');
+	Note.findById( req.params.id, function(err, note){
+		note.title = req.body.title; 
+		note.description = req.body.description;
+		note.upated_at = Date.now();
+		note.save(function(error, note){
+			res.redirect('/notes');
 		});
 	});
 });
@@ -54,12 +54,12 @@ Movie.findByIdAndUpdate(req.params.id, {set: { title: }} function(err, movie){
 
 /* Mongoose POST function */
 router.post('/', function(req, res){
-	new Movie({
+	new Notes({
 		title: req.body.title ,
 		description: req.body.description ,
 		upated_at: Date.now()
-	}).save( function(err, movie){
-		res.redirect('/movies');
+	}).save( function(err, note){
+		res.redirect('/notes');
 	});
 });
 
@@ -71,9 +71,9 @@ router.post('/', function(req, res){
 
 /* DELETE a movie with mongoose */
 router.post('/:id', function(req, res){
-	Movie.findById(req.params.id, function(err, movie){
-		movie.remove(function(err, movie){
-			res.redirect('/movies');
+	Note.findById(req.params.id, function(err, note){
+		note.remove(function(err, note){
+			res.redirect('/notes');
 		});
 	});
 });
