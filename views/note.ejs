@@ -11,11 +11,21 @@
 		<a href="/notes">Back to Notes</a>
 		<h1 class="center"><%= note.title %></h1>
 		<hr />
+	 <div class="row">	
 		<% var action = '/notes/edit/' + note.id %>
-		<form class="center-align" action=<%= action %> method='POST'>
-			<input type='text' name='title' value='<%= note.title %>' />
-			<input type='text' name='description' value='<%= note.description %>' />			
-			<button class="btn btn-waves">Update</button>
-		</form>	
+		<div class="col s12 m4 offset-m4">
+      <div class="card medium yellow">
+        <div class= 'yellow center'>
+        <form class="center-align" action=<%= action %> method='POST'>
+					<input type='text' name='title' value='<%= note.title %>' />
+					<input type='text' name='description' value='<%= note.description %>' />			
+					<button class="btn btn-flat yellow black-text">Update</button>
+       </form> 
+       </div>         
+      </div>
+      </div>
+   </div>   
+
+		
 	</body>
 </html>
