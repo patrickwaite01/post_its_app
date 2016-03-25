@@ -11,7 +11,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var notes = require('./routes/notes');
 
-var app = express();
+var app = post_it();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -23,9 +23,9 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(post_it.static(path.join(__dirname, 'public')));
 
-app.use('/bower_components', express.static(__dirname + '/bower_components'));  
+app.use('/bower_components', post_it.static(__dirname + '/bower_components'));  
 
 app.use('/', routes);
 app.use('/notes', notes);

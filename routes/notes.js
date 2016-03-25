@@ -3,14 +3,6 @@ var express = require('express');
 var Note = mongoose.model('Note');
 var router = express.Router();
 
-/* GET movie listings. */
-// router.get('/', function(req, res, next) {
-//   redisClient.smembers("movies", function (err, movies) {
-//     res.locals.movies = movies ? movies : [];
-//     res.render('movies');
-//   });
-// });
-
 /* Mongoose GET functin */
 router.get('/', function(req, res){
 	Note.find( function (error, notes, count) {
@@ -18,14 +10,14 @@ router.get('/', function(req, res){
 	});
 });
 
-/* GET a specific Movie */
+/* GET a specific Note */
 router.get('/:id', function (req, res) {
 	Note.findById(req.params.id, function(err, note){
 		res.render('note', { note: note});
 	});
 });
 
-/* Edit a movie in mongoose */
+/* Edit a note in mongoose */
 router.post('/edit/:id', function(req, res){
 	Note.findById( req.params.id, function(err, note){
 		note.title = req.body.title; 
@@ -37,24 +29,10 @@ router.post('/edit/:id', function(req, res){
 	});
 });
 
-/* Easier way to updatea movie
-Movie.update({ _id: req.params.id}, {$set {title: req.body }})
-
-OR
-
-Movie.findByIdAndUpdate(req.params.id, {set: { title: }} function(err, movie){
-	res.render('/movie', movie);
-}); */
-
-/* POST add movie. */
-// router.post('/', function(req, res, next) {
-//   redisClient.sadd("movies", req.body.name);
-//   res.redirect('/movies');
-// });
 
 /* Mongoose POST function */
 router.post('/', function(req, res){
-	new Notes({
+	new Note({
 		title: req.body.title ,
 		description: req.body.description ,
 		upated_at: Date.now()
@@ -63,13 +41,7 @@ router.post('/', function(req, res){
 	});
 });
 
-/* DELETE a movie */
-// router.get('/delete/:name', function(req, res, next) {
-//   redisClient.srem("movies", req.params.name);
-//   res.redirect('/movies');
-// });
-
-/* DELETE a movie with mongoose */
+/* DELETE a note with mongoose */
 router.post('/:id', function(req, res){
 	Note.findById(req.params.id, function(err, note){
 		note.remove(function(err, note){
