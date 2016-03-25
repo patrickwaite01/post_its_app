@@ -27,7 +27,11 @@
         <div class="card-content yellow black-text">
           <span class="card-title yellow"><%= note.title %></span>
           <h5><%= note.description %></h5>
-        </div>
+
+        <form action=<%= action %> method='POST'>
+                  <button class='btn btn-flat waves-effect yellow black-text center' type='submit'>Delete</button>
+        </form> 
+        </div>         
       </div>
       </div>
    <% }); %>
