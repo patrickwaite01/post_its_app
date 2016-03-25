@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <% include ./partials/head %>
+ </head>
+ <body>
+   <header>
+     <% include ./partials/header %>
+   </header>
+   <h1 class='center'>Reminders</h1>
+   <hr />
+   <div class='row'>
+     <div class='col s12 m4 offset-m4'>
+       <h3>Add Post It Note</h3>
+       <form action='/movies' method='post'>
+         <input type='text' name='title' placeholder='title' required />
+         <input type='text' name="description" placeholder="reminder" required />
+         <button class='btn btn-waves yellow black-text' type='submit'>Post It!</button>
+       </form>
+     </div>
+    
+    <!-- <div class="row">
+     <table class='table col m8 s12 offset-m2'>
+       <thead>
+         <th>Title</th>
+         <th>Description</th>
+         <th>x</th>
+       </thead>
+       <tbody>
+         <% movies.forEach( function(movie) { %>
+           <% action = '/movies/' + movie.id %>
+           <tr>
+             <td> <a href =<%= action %>><%= movie.title %></a> </td>
+             <td><%= movie.description %></td>
+             <td>
+                <form action=<%= action %> method='POST'>
+                  <button class='btn waves-effect' type='submit'>Delete</button>
+                </form>
+             </td>
+         <% }); %>
+       </tbody>
+     </table>
+    </div> -->
+
+<div class="row">
+        <div class="col s12 m2">
+          <div class="card blue-grey darken-1">
+            <div class="card-content yellow black-text">
+              <span class="card-title yellow">Post-It</span>
+              <p>Reminder goes here...</p>
+            </div>
+            <div class="card-action yellow">
+              <!-- <a href="#">Delete</a> -->
+              <form action=<%= action %> method='POST'>
+                  <button class='btn btn-flat waves-effect' type='submit'>Delete</button>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+   </body>
+</html>
