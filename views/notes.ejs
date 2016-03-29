@@ -7,11 +7,13 @@
  <header>
    <% include ./partials/header %>
  </header>
- <h1 class='center'>Reminders</h1>
- <hr />
-
- <div class='row'>
-   <div class='col s12 m4 offset-m4'>
+ <!-- <div class="parallax-container">
+    <div class="parallax"><img src="http://s22.postimg.org/45dk1ictd/cork_board.jpg"></div> --> 
+ <div class='cork'>
+<h1 class='center yellow'>Reminders</h1>
+ <!-- <hr /> --> 
+  <div class='row'>
+   <div class='col s12 m4 offset-m4 yellow'>
      <h3>Add Post It Note</h3>
      <form action='/notes' method='post'>
        <input type='text' name='title' placeholder='title' required />
@@ -20,12 +22,10 @@
      </form>
    </div>
  </div> 
-<!--  http://www.lostsurfboards.net/wp-content/uploads/2015/06/corkBoardWP-1.jpg -->
 
-<!--  <div class="parallax-container">
-      <div class="parallax"><img src="http://s22.postimg.org/45dk1ictd/cork_board.jpg"></div> -->
 
-<!--   <div class="row">
+
+<div class="row">
     <% notes.forEach(function(note) { %>
       <% action = '/notes/' + note.id %>
       <div class="col s12 m3">
@@ -34,7 +34,7 @@
             <span class="card-title yellow"><a href =<%= action %>><%= note.title %></a></span>
             <h5><%= note.description %></h5> 
           </div>
-        </div> 
+        </div>
           <div class= 'yellow center'>
           <form action=<%= action %> method='POST'>
             <button class='btn btn-flat waves-effect yellow black-text center' type='submit'>Delete</button>
@@ -43,8 +43,8 @@
       </div>
     <% }); %>
   </div>
-  </body> -->
- <div class="row">
+  </body> 
+ <!-- <div class="row">
   <% notes.forEach(function(note) { %>
    <% action = '/notes/' + note.id %>
     <div class="col s12 m4">
@@ -60,8 +60,8 @@
     </div>
  </div>
   <% }); %>
-</div>
-
+</div> --> 
+  
 
 <% include ./partials/footer %> 
  </body>
